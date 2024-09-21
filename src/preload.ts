@@ -1,10 +1,11 @@
-window.addEventListener('DOMContentLoaded', () => {
-  const replaceText = (selector: string, text: string) => {
-    const element = document.getElementById(selector);
-    if (element) element.innerText = text;
-  };
+const { contextBridge } = require('electron');
 
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type]);
-  }
-});
+export const api = {
+  versions: () => ({
+    node: process.versions.node,
+    chrome: process.versions.chrome,
+    electron: process.versions.electron,
+  }),
+};
+
+contextBridge.exposeInMainWorld('api', api);
