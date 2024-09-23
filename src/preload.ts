@@ -1,6 +1,6 @@
 const { contextBridge } = require('electron');
 
-export const api = {
+export const electron = {
   versions: () => ({
     node: process.versions.node,
     chrome: process.versions.chrome,
@@ -8,4 +8,4 @@ export const api = {
   }),
 };
 
-contextBridge.exposeInMainWorld('api', api);
+contextBridge.exposeInMainWorld('electron', electron);

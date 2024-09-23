@@ -9,7 +9,7 @@ export const App = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await window.api.versions();
+      const res = await window.electron.versions();
       setVersion(res);
     })();
   }, []);
