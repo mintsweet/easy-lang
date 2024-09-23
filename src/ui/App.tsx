@@ -1,26 +1,11 @@
-import { useState, useEffect } from 'react';
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from '@/app/router';
 
 export const App = () => {
-  const [version, setVersion] = useState({
-    node: '',
-    chrome: '',
-    electron: '',
-  });
-
-  useEffect(() => {
-    (async () => {
-      const res = await window.electron.versions();
-      setVersion(res);
-    })();
-  }, []);
-
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <p>
-        We are using Node.js {version.node}, Chromium {version.chrome}, and
-        Electron {version.electron}.
-      </p>
+    <div className="container mx-auto px-4 py-8 bg-white">
+      <RouterProvider router={router} />
     </div>
   );
 };
