@@ -1,6 +1,8 @@
-const path = require('node:path');
+import path from 'path';
 
-const { app, BrowserWindow } = require('electron/main');
+import { app, BrowserWindow } from 'electron';
+
+import { registerIpc } from './ipc';
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -19,6 +21,9 @@ function createWindow() {
       path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
     );
   }
+
+  // Register IPC handlers
+  registerIpc();
 }
 
 app.whenReady().then(() => {
