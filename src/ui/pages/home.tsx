@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { SelectLang, FileUpload } from '@/components';
+import { Dropdown, SelectLang, FileUpload } from '@/components';
 import { useTranslator } from '@/context';
 
 export const Home = () => {
@@ -22,8 +22,33 @@ export const Home = () => {
     setToLang(fromLang);
   };
 
+  const handleDropdownClick = (key: string) => {
+    navigate(key);
+  };
+
   return (
     <div className="flex flex-col">
+      <div className="flex justify-end mb-6">
+        <Dropdown
+          items={[{ key: 'settings', label: 'Settings' }]}
+          onClick={handleDropdownClick}
+        >
+          <svg
+            className="w-6 h-6 text-gray-500"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            ></path>
+          </svg>
+        </Dropdown>
+      </div>
       <div className="flex justify-between items-center">
         <SelectLang type="from" value={fromLang} onChange={setFromLang} />
         <svg

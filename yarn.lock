@@ -2408,6 +2408,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mints/hooks@npm:^1.0.0-beta.5":
+  version: 1.0.0-beta.5
+  resolution: "@mints/hooks@npm:1.0.0-beta.5"
+  dependencies:
+    lodash: "npm:^4.17.21"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+  peerDependencies:
+    react: ^18.3.1
+    react-dom: ^18.3.1
+  checksum: 10c0/61a167eac077572579c6a40b74c6456551ccfdc22cfe78fe3fbf90f11ab2072a6ec15fcad7d203b91f263e3ec19a9761e9c4867a140701cc671c4561c7334bae
+  languageName: node
+  linkType: hard
+
 "@nicolo-ribaudo/eslint-scope-5-internals@npm:5.1.1-v1":
   version: 5.1.1-v1
   resolution: "@nicolo-ribaudo/eslint-scope-5-internals@npm:5.1.1-v1"
@@ -4375,6 +4389,7 @@ __metadata:
     "@electron-forge/plugin-vite": "npm:^7.5.0"
     "@electron/fuses": "npm:^1.8.0"
     "@mints/eslint-config": "npm:^1.0.2"
+    "@mints/hooks": "npm:^1.0.0-beta.5"
     "@types/react": "npm:^18.3.8"
     "@types/react-dom": "npm:^18.3.0"
     autoprefixer: "npm:^10.4.20"
