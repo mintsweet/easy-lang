@@ -1,10 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { SelectLang, FileUpload } from '@/components';
+import { useTranslator } from '@/context';
 
 export const Home = () => {
   const [fromLang, setFromLang] = useState('English');
   const [toLang, setToLang] = useState('简体中文');
+
+  const navigate = useNavigate();
+  const [translator] = useTranslator();
+
+  useEffect(() => {
+    if (!translator) {
+      navigate('/onboard');
+    }
+  }, [translator]);
 
   const handleSwapLang = () => {
     setFromLang(toLang);
