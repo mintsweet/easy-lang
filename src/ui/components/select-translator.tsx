@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import type { ITranslator } from '@/context';
+import type { ITranslator } from '@/types';
 
 import { ChatGPT } from './translator';
 

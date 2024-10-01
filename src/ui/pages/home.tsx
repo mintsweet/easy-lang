@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLocalStorage } from '@mints/hooks';
 
 import { Dropdown, SelectLang, FileUpload } from '@/components';
-import { useTranslator } from '@/context';
+import type { ITranslator } from '@/types';
 
 export const Home = () => {
   const [fromLang, setFromLang] = useState('English');
   const [toLang, setToLang] = useState('简体中文');
 
   const navigate = useNavigate();
-  const [translator] = useTranslator();
+  const [translator] = useLocalStorage<ITranslator | null>('translator', null);
 
   useEffect(() => {
     if (!translator) {

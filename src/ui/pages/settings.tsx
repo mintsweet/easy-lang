@@ -1,11 +1,15 @@
 import { useNavigate } from 'react-router-dom';
+import { useLocalStorage } from '@mints/hooks';
 
 import { SelectTranslator } from '@/components';
-import { useTranslator } from '@/context';
+import { ITranslator } from '@/types';
 
 export const Settings = () => {
   const navigate = useNavigate();
-  const [translator, setTranslator] = useTranslator();
+  const [translator, setTranslator] = useLocalStorage<ITranslator>(
+    'translator',
+    null,
+  );
 
   return (
     <div className="flex flex-col">
