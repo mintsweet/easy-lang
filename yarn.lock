@@ -2408,9 +2408,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mints/hooks@npm:^1.0.0-beta.9":
-  version: 1.0.0-beta.9
-  resolution: "@mints/hooks@npm:1.0.0-beta.9"
+"@mints/hooks@npm:^1.0.0-beta.11":
+  version: 1.0.0-beta.11
+  resolution: "@mints/hooks@npm:1.0.0-beta.11"
   dependencies:
     lodash: "npm:^4.17.21"
     react: "npm:^18.3.1"
@@ -2418,7 +2418,7 @@ __metadata:
   peerDependencies:
     react: ^18.3.1
     react-dom: ^18.3.1
-  checksum: 10c0/609d3e67aed755cc365df5884cabff7512f09a9792b59255989445fbcd558a86925fee7c5530b751ae4bd32b82989d85b1366473654a654e62669aa615d1613e
+  checksum: 10c0/98cdb3b15226b9db8a0e629274cc37df2d496fa7aada81dd0e294e9c986ee3d34ef790b83b7a4dd1d492662c480892257954b86e70a71003141958d2080c5145
   languageName: node
   linkType: hard
 
@@ -4389,7 +4389,7 @@ __metadata:
     "@electron-forge/plugin-vite": "npm:^7.5.0"
     "@electron/fuses": "npm:^1.8.0"
     "@mints/eslint-config": "npm:^1.0.2"
-    "@mints/hooks": "npm:^1.0.0-beta.9"
+    "@mints/hooks": "npm:^1.0.0-beta.11"
     "@types/react": "npm:^18.3.8"
     "@types/react-dom": "npm:^18.3.0"
     autoprefixer: "npm:^10.4.20"
