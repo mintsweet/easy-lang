@@ -4,11 +4,13 @@ import fs from 'fs';
 import { ipcMain, dialog } from 'electron';
 
 import { txtConverter } from './converter/txt';
+import { ChatGptHelper } from './helper';
 import { IPC } from './types';
 
-export const converter: Record<string, (filePath: string) => void> = {
-  '.txt': txtConverter,
-};
+export const converter: Record<string, (filePath: string) => Promise<string>> =
+  {
+    '.txt': txtConverter,
+  };
 
 export const registerIpc = () => {
   ipcMain.handle(IPC.OPEN_FILE_DIALOG, async () => {
@@ -27,14 +29,21 @@ export const registerIpc = () => {
     return res;
   });
 
-  ipcMain.handle(IPC.TRASNLATE_CONTENT, async (_, filePath: string) => {
-    const suffix = path.extname(filePath);
-    const content = await converter[suffix](filePath);
+  ipcMain.handle(
+    IPC.TRASNLATE_CONTENT,
+    async (_, filePath: string, params: any) => {
+      const suffix = path.extname(filePath);
+      const content = await converter[suffix](filePath);
 
-    // TODO: call chatgpt api to translate content
+      const translatedContent = await ChatGptHelper(content, {
+        from: params.from,
+        to: params.to,
+        apiKey: params.apiKey,
+      });
 
-    return content;
-  });
+      return translatedContent;
+    },
+  );
 
   ipcMain.handle(IPC.DOWNLOAD_FILE, async (_, content: string) => {
     const { filePath } = await dialog.showSaveDialog({

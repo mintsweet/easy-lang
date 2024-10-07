@@ -70,7 +70,7 @@ export const Home = () => {
         <SelectLang type="to" value={toLang} onChange={setToLang} />
       </div>
       <div className="mt-8">
-        <FileUpload />
+        <FileUpload from={fromLang} to={toLang} />
       </div>
     </div>
   );

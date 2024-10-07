@@ -1,15 +1,27 @@
 import { useState } from 'react';
-import { useSimulateProgress } from '@mints/hooks';
+import { useLocalStorage, useSimulateProgress } from '@mints/hooks';
 
 import { IPC } from '@ipc/types';
 
-export const FileUpload = () => {
+interface Props {
+  from: string;
+  to: string;
+}
+
+export const FileUpload = ({ from, to }: Props) => {
   const [content, setContent] = useState<string | null>(null);
+
+  const [translator] = useLocalStorage<ITranslator | null>('translator', null);
 
   const [progress, onStart] = useSimulateProgress(3000, async (filePath) => {
     const content = await window.electron.ipcRenderer.invoke(
       IPC.TRASNLATE_CONTENT,
       filePath,
+      {
+        from,
+        to,
+        ...translator.config,
+      },
     );
     setContent(content);
   });
