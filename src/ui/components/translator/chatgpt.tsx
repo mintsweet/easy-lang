@@ -16,8 +16,8 @@ export const ChatGPT = ({ config, setConfig }: Props) => {
         type="text"
         id="chatgpt-api-keys"
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-        value={config.apiKeys ?? ''}
-        onChange={(e) => setConfig({ ...config, apiKeys: e.target.value })}
+        value={config.apiKey ?? ''}
+        onChange={(e) => setConfig({ ...config, apiKey: e.target.value })}
       />
     </div>
   );
