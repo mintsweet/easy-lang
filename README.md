@@ -4,7 +4,7 @@
 
 <h1>Easy Lang</h1>
 
-An easy-to-use document translator
+Fast, accurate, and easy document translation
 
 ![GitHub License](https://img.shields.io/github/license/mintsweet/easy-lang)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/mintsweet/easy-lang)
