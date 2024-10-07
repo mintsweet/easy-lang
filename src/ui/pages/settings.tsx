@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '@mints/hooks';
 
-import { SelectTranslator } from '@/components';
-import { ITranslator } from '@/types';
+import { Logo, SelectTranslator } from '@/components';
 
 export const Settings = () => {
   const navigate = useNavigate();
@@ -13,7 +12,8 @@ export const Settings = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex justify-end">
+      <div className="flex justify-between mb-6">
+        <Logo />
         <svg
           className="w-4 h-4 text-gray-500 cursor-pointer"
           xmlns="http://www.w3.org/2000/svg"

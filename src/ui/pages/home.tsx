@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '@mints/hooks';
 
-import { Dropdown, SelectLang, FileUpload } from '@/components';
-import type { ITranslator } from '@/types';
+import { Logo, Dropdown, SelectLang, FileUpload } from '@/components';
 
 export const Home = () => {
   const [fromLang, setFromLang] = useState('English');
@@ -29,7 +28,8 @@ export const Home = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex justify-end mb-6">
+      <div className="flex justify-between mb-6">
+        <Logo />
         <Dropdown
           items={[{ key: 'settings', label: 'Settings' }]}
           onClick={handleDropdownClick}

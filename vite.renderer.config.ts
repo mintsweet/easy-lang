@@ -7,6 +7,7 @@ export default defineConfig({
     alias: {
       '@': path.join(__dirname, './src/ui'),
       '@ipc': path.join(__dirname, './src/ipc'),
+      '@assets': path.join(__dirname, './src/assets'),
     },
   },
 });

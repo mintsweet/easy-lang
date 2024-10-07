@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '@mints/hooks';
 
-import { SelectTranslator } from '@/components';
-import type { ITranslator } from '@/types';
+import { Logo, SelectTranslator } from '@/components';
 
 export const Onboard = () => {
   const navigate = useNavigate();
@@ -13,6 +12,9 @@ export const Onboard = () => {
 
   return (
     <div className="flex flex-col">
+      <div className="flex justify-center mb-6">
+        <Logo />
+      </div>
       <SelectTranslator translator={translator} setTranslator={setTranslator} />
       <div className="block">
         <button
