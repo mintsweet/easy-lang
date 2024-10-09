@@ -13,18 +13,21 @@ export const FileUpload = ({ from, to }: Props) => {
 
   const [translator] = useLocalStorage<ITranslator | null>('translator', null);
 
-  const [progress, onStart] = useSimulateProgress(3000, async (filePath) => {
-    const content = await window.electron.ipcRenderer.invoke(
-      IPC.TRASNLATE_CONTENT,
-      filePath,
-      {
-        from,
-        to,
-        ...translator.config,
-      },
-    );
-    setContent(content);
-  });
+  const [progress, onStart, onReset] = useSimulateProgress(
+    3000,
+    async (filePath) => {
+      const content = await window.electron.ipcRenderer.invoke(
+        IPC.TRASNLATE_CONTENT,
+        filePath,
+        {
+          from,
+          to,
+          ...translator.config,
+        },
+      );
+      setContent(content);
+    },
+  );
 
   const handleOpendFile = async () => {
     const filePath = await window.electron.ipcRenderer.invoke(
@@ -43,11 +46,12 @@ export const FileUpload = ({ from, to }: Props) => {
 
   const handleReset = () => {
     setContent(null);
+    onReset();
   };
 
   return (
     <div className="flex items-center justify-center w-full">
-      {progress === 10 && (
+      {progress === 0 && (
         <label
           htmlFor="dropzone-file"
           className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50"
@@ -88,7 +92,7 @@ export const FileUpload = ({ from, to }: Props) => {
           </span>
         </div>
       )}
-      {progress === 0 && (
+      {progress === 100 && (
         <div className="flex flex-col items-center">
           <h2 className="mb-4 text-xl font-semibold">Translation completed!</h2>
           <div className="flex">
